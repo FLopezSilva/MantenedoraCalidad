@@ -1,0 +1,263 @@
+﻿@model MantenedoraCalidad.Models.PRUEBA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: #dfe7ea;
+    }
+</style>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <h3>CONDICION DE ENSAYO</h3>
+        <dt>
+            Codigo:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONDICION_ENSAYO.cod_cocina)
+        </dd>
+        <dt>
+            Fecha:
+        </dt>
+
+        <dd>
+            @Convert.ToDateTime(Model.fec_pruebas).ToString("dd/MM/yyyy")
+        </dd>
+
+        <dt>
+            Presion Gas:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONDICION_ENSAYO.presion_gas) (KPA)
+        </dd>
+
+        <dt>
+            Poder Calorifico:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONDICION_ENSAYO.poder_calorifico) (Kcal/Kg)
+        </dd>
+
+        <dt>
+            Humedad Relativa:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONDICION_ENSAYO.humed_relativa) (%)
+        </dd>
+
+        <dt>
+            Temperatura Ambiente:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONDICION_ENSAYO.temp_ambiente) (°C)
+        </dd>
+
+        <dt>
+            Tipo de Gas:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONDICION_ENSAYO.TIPO_GAS.nombre_gas)
+        </dd>
+
+        <h3>PRUEBAS MANUALES</h3>
+        <p style="color:indianred">Ensayo Control LLama</p>
+
+
+        <dt>
+            Llama Funcional:
+        </dt>
+
+        @if (Model.ENSAYO_C_LLAMA.disp_c_llama_f == true)
+        {
+            <dd>
+                Cumple
+            </dd>
+        }
+        else
+        {
+            <dd>
+                No cumple
+            </dd>
+        }
+
+        <dt>
+            Llama Construcción:
+        </dt>
+
+        @if (Model.ENSAYO_C_LLAMA.disp_c_llama_c == true)
+        {
+            <dd>
+                Cumple
+            </dd>
+        }
+        else
+        {
+            <dd>
+                No cumple
+            </dd>
+        }
+
+        <dt>
+            Estabilidad Llama:
+        </dt>
+
+        @if (Model.ENSAYO_C_LLAMA.encend_interc == true)
+        {
+            <dd>
+                Cumple
+            </dd>
+        }
+        else
+        {
+            <dd>
+                No cumple
+            </dd>
+        }
+        <p style="color:indianred">Ensayo Retención Puerta</p>
+
+        <dt>
+            Tiempo Retención:
+        </dt>
+
+        <dd>
+
+            @Convert.ToInt32(Model.ENSAYO_RETENCION.tiem_retencion) Segundos
+
+        </dd>
+
+        <dt>
+            Tiempo Inercia:
+        </dt>
+
+        <dd>
+            @Convert.ToInt32(Model.ENSAYO_RETENCION.tiem_inercia) Segundos
+        </dd>
+
+        <h3>ENSAYO NIVELACIÓN</h3>
+
+        <p style="color:indianred">Ensayo Nivelación Puerta</p>
+
+        <dt>
+            Nivelación sin peso:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENSAYO_NIVELAC.niv_puerta_sp) Grados(°)
+        </dd>
+
+        <dt>
+            Nivelación con peso:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENSAYO_NIVELAC.niv_puerta_cp) (mm)
+        </dd>
+        <p style="color:indianred">Ensayo Resistencia Puerta</p>
+
+        <dt>
+            Resistencia Puerta:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENSAYO_RESIST.resist_puerta) (Newton)
+        </dd>
+        <p style="color:indianred">Ensayo Trabamiento Puerta</p>
+
+        <dt>
+            Trabamiento Puerta:
+        </dt>
+
+        @if (Model.ENSAYO_TRABAM.cumple_trab == true)
+        {
+            <dd>
+                Cumple
+            </dd>
+        }
+        else
+        {
+            <dd>
+                No cumple
+            </dd>
+        }
+
+        <p style="color:indianred">Ensayo Basculamiento</p>
+
+        <dt>
+            Basculamiento:
+        </dt>
+
+        @if (Model.ENSAYO_BASCUL.cumple_basc == true)
+        {
+            <dd>
+                Cumple
+            </dd>
+        }
+        else
+        {
+            <dd>
+                No cumple
+            </dd>
+        }
+        <h3>ENSAYO FUGA GAS</h3>
+
+
+        <dt>
+            Estanqueidad Conjunto:
+        </dt>
+
+        @if (Model.ENSAYO_FUGA_G.est_conj_gas == true)
+        {
+            <dd>
+                Cumple
+            </dd>
+        }
+        else
+        {
+            <dd>
+                No cumple
+            </dd>
+        }
+
+        <dt>
+            Estanqueidad Individual:
+        </dt>
+
+        @if (Model.ENSAYO_FUGA_G.est_indiv_gas == true)
+        {
+            <dd>
+                Cumple
+            </dd>
+        }
+        else
+        {
+            <dd>
+                No cumple
+            </dd>
+        }
+
+        <h3>ENSAYO COMBUSTION</h3>
+
+        <dt>
+            Q. trasero derecho:
+        </dt>
+
+        <dd>
+
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_prueba }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

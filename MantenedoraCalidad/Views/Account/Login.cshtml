@@ -1,0 +1,97 @@
+﻿@model MantenedoraCalidad.Models.USUARIO
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Yinka Enoch Adedokun">
+    <title>Login Page</title>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/create.css">
+
+
+    <!--===============================================================================================-->
+</head>
+
+<body>
+
+  
+
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+        <fieldset>
+
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @if (@ViewBag.Message != null)
+            {
+                <div style="border: 1px solid red">
+                    @ViewBag.Message
+                </div>
+            }
+        </fieldset>
+        <!-- Main Content -->
+
+        <div class="container-fluid">
+            <div class="row main-content bg-success text-center">
+                <div class="col-md-4 text-center company__info">
+                    <span class="company__logo">
+                        <h2>
+                            <span class="fa fa-android">
+                                <img src="http://service-de-lavarropas.com/wp-content/uploads/2015/05/service-lavarropas-electrolux.png" alt="Company logo" width="150" height="50" />
+                            </span>
+                        </h2>
+                    </span>
+                    <h4 class="company_title"></h4>
+                </div>
+                <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <h2>Inicio de Sesión</h2>
+                        </div>
+                        <div class="row">
+                            <table>
+                                <div class="row">
+                                    @Html.TextBoxFor(a => a.rut_usuario, new { placeholder = "Digite el rut del usuario", @class = "form__input" })
+
+                                </div>
+                                <div class="row">
+                                    <!-- <span class="fa fa-lock"></span> -->
+                                    @Html.PasswordFor(a => a.contr_usuario, new { placeholder = "Digite contraseña", @class = "form__input" })
+                                </div>
+                                <div class="row">
+                                    <input type="checkbox" name="remember_me" id="remember_me" class="">
+                                    <label for="remember_me">Recordarme!</label>
+                                </div>
+                                <div class="row">
+                                    <input type="submit" value="Iniciar Sesión" class="btn">
+                                </div>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+    }
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+

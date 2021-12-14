@@ -1,0 +1,90 @@
+﻿@model IEnumerable<MantenedoraCalidad.Models.COCINA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: inherit;
+        width: 100%;
+    }
+
+    td, th {
+        border: 0.5px solid #808080;
+        text-align: left;
+        padding: 5px;
+    }
+
+    tr:nth-child(even) {
+        background-color: lightgrey;
+    }
+
+    body {
+        background-color: #dfe7ea;
+    }
+</style>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+           Codigo Cocina
+        </th>
+        <th>
+            Mes Certificado
+        </th>
+        <th>
+            Solicitud
+        </th>
+        <th>
+          Codigo Modelo
+        </th>
+        <th>
+           Serie
+        </th>
+        <th>
+            Modelo
+        </th>
+       
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.cod_cocina)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.mes_certif)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.solicitud)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.n_serie_desde)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.n_serie_hasta)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MODELO.nom_modelo)
+    </td>
+   
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.cod_cocina }) |
+        @Html.ActionLink("Details", "Details", new { id = item.cod_cocina }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.cod_cocina })
+    </td>
+</tr>
+    }
+
+</table>

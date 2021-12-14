@@ -1,0 +1,129 @@
+﻿@model IEnumerable<MantenedoraCalidad.Models.USUARIO>
+
+@{
+    ViewBag.Title = "Lista Usuarios";
+}
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/cocina.css">
+</head>
+<body>
+    <center>
+        <h2>USUARIOS</h2>
+    </center>
+
+
+    <p style="text-align:left">
+        <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create","USUARIOs")'">
+            Crear nuevo usuario
+        </button>
+
+    </p>
+    <br />
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: inherit;
+            width: 100%;
+        }
+
+        td, th {
+            border: 0.5px solid #808080;
+            text-align: left;
+            padding: 5px;
+        }
+
+        tr:nth-child(even) {
+            background-color: lightgrey;
+        }
+
+        body {
+            background-color: #dfe7ea;
+        }
+    </style>
+
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+                <tr>
+            <th>
+                <center>
+                    Rut usuario
+                </center>
+            </th>
+            <th>
+                <center>
+                    Nombre
+                </center>
+
+            </th>
+            <th>
+                <center>
+                    Apellido
+                </center>
+
+            </th>
+            <th>
+                <center>
+                    Contraseña
+                </center>
+
+            </th>
+            <th>
+                <center>
+                    Supervisor
+                </center>
+
+            </th>
+            <th>
+                <center>
+                    Rol
+                </center>
+
+            </th>
+            <th>
+                <center>
+                    Opciones
+                </center>
+            </th>
+            </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.rut_usuario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nom_usuario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.apell_usuario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.contr_usuario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nom_supervisor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ROL.descrip_rol)
+                    </td>
+                    <td>
+                        <center>
+                            <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Edit","USUARIOs" , new { id = item.rut_usuario })'">
+                                Editar
+                            </button>
+                            <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Delete","USUARIOs" , new { id = item.rut_usuario })'">
+                                Borrar
+
+                            </button>
+                        </center>
+                    </td>
+                </tr>
+            }
+
+        </table>
+</body>
+</html>

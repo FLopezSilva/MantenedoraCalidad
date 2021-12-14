@@ -1,0 +1,93 @@
+﻿@model IPagedList<MantenedoraCalidad.Models.PRUEBA>
+@using PagedList.Mvc;
+@using PagedList;
+
+@{
+    ViewBag.Title = "Lista Cocinas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/cocina.css">
+</head>
+<body>
+
+    <h2>Selecciona la cocina la cual desea ver en detalle las pruebas</h2>
+
+
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>
+                        Codigo Producto
+                    </th>
+                    <th>
+                        Fecha Certificado
+                    </th>
+                    <th>
+                        Solicitud
+                    </th>
+                    <th>
+                        Codigo Modelo
+                    </th>
+                    <th>
+                        Serie
+                    </th>
+                    <th>
+                        Familia
+                    </th>
+                    <th>
+                        Modelo
+                    </th>
+                    <th>
+                        Marca
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tbody>
+
+                    <tr>
+                        <td scope="row">
+                            @Html.DisplayFor(modelItem => item.CONDICION_ENSAYO.cod_cocina)
+                        </td>
+                        <td>
+                            @Convert.ToDateTime(item.fec_pruebas).ToString("dd/MM/yyyy")
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CONDICION_ENSAYO.COCINA.solicitud)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CONDICION_ENSAYO.COCINA.n_serie_desde)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CONDICION_ENSAYO.COCINA.n_serie_hasta)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CONDICION_ENSAYO.COCINA.MODELO.nom_familia)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CONDICION_ENSAYO.COCINA.MODELO.nom_modelo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CONDICION_ENSAYO.COCINA.MODELO.nom_marca)
+                        </td>
+                      
+                        <td>
+                            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Details","PRUEBAs" , new { id = item.id_prueba })'">
+                                Detalles
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+    @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page, searchBy = Request.QueryString["searchBy"], search = Request.QueryString["search"] }),
+ new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
+</body>
+</html>

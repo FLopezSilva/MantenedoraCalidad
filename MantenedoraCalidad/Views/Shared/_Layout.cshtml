@@ -1,0 +1,89 @@
+﻿ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>@ViewBag.Title - Mantenedora Calidad</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+ 
+    <style>
+        .navbar {
+            background-color: #011e41;
+        }
+
+
+        .my-class {
+            color: #ffffff
+        }
+
+        a.my-class:active {
+            color: #ffffff
+        }
+
+        a.my-class:link {
+            color: #ffffff
+        }
+
+        a.my-class:visited {
+            color: #ffffff
+        }
+    
+    </style>
+</head>
+<body>
+  
+
+
+    <div class="navbar navbar-inverse navbar-fixed-top" >
+        <div class="container">
+            <div class="navbar-header">
+               
+                <a onclick="location.href='@Url.Action("Index","Home")'">
+                    <img src="http://service-de-lavarropas.com/wp-content/uploads/2015/05/service-lavarropas-electrolux.png" alt="Company logo" width="150" height="50" />
+                </a>
+
+
+
+            </div>
+            <div class="navbar-collapse collapse">
+
+                <ul class="nav navbar-nav" >
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        <li>@Html.ActionLink("Usuarios", "Index", "USUARIOs")</li>
+                        <li>@Html.ActionLink("Modelos", "Index", "MODELO")</li>
+                        <li>@Html.ActionLink("Cocina", "Index", "PRUEBAs")</li>
+
+
+
+                        <li style="float:right">@Html.ActionLink("Cerrar Sesión", "Logout", "Account")</li>
+                    }
+                    else
+                    {
+
+
+                    }
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

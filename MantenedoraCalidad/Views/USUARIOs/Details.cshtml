@@ -1,0 +1,58 @@
+﻿@model MantenedoraCalidad.Models.USUARIO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>USUARIO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nom_usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apell_usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apell_usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contr_usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contr_usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nom_supervisor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_supervisor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ROL.descrip_rol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ROL.descrip_rol)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.rut_usuario }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

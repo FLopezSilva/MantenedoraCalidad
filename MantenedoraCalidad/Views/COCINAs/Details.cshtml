@@ -1,0 +1,71 @@
+﻿@model MantenedoraCalidad.Models.COCINA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    body {
+        background-color: #dfe7ea;
+    }
+</style>
+<h2>Details</h2>
+
+<div>
+    <h4>COCINA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.mes_certif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mes_certif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.solicitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.solicitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.n_serie_desde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.n_serie_desde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.n_serie_hasta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.n_serie_hasta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MODELO.nom_modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MODELO.nom_modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.N_ENSAYO.id_n_ensayo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.N_ENSAYO.id_n_ensayo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.cod_cocina }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

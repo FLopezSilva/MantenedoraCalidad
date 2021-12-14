@@ -1,0 +1,75 @@
+﻿@model MantenedoraCalidad.Models.COMBU
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>COMBU</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nom_quemador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_quemador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nom_posicion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_posicion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.co)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.co)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.co_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.co_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.co_n)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.co_n)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cumple_comb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cumple_comb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ENSAYO_COMB.id_combu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENSAYO_COMB.id_combu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_comb }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

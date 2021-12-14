@@ -1,0 +1,153 @@
+﻿@model MantenedoraCalidad.Models.PRUEBA
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PRUEBA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fec_pruebas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fec_pruebas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hora_inicio_p)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hora_inicio_p)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hora_termino_p)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hora_termino_p)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tiem_prueba)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tiem_prueba)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CONDICION_ENSAYO.cod_cocina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONDICION_ENSAYO.cod_cocina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ENSAYO_BASCUL.id_basc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENSAYO_BASCUL.id_basc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ENSAYO_C_LLAMA.id_c_llama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENSAYO_C_LLAMA.id_c_llama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ENSAYO_COMB.id_combu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENSAYO_COMB.id_combu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ENSAYO_ELECTR.id_electr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENSAYO_ELECTR.id_electr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ENSAYO_FUGA_G.id_fuga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENSAYO_FUGA_G.id_fuga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ENSAYO_NIVELAC.id_nivelac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENSAYO_NIVELAC.id_nivelac)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ENSAYO_RESIST.id_resist)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENSAYO_RESIST.id_resist)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ENSAYO_RETENCION.id_retencion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENSAYO_RETENCION.id_retencion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ENSAYO_TERMOCUP.id_termo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENSAYO_TERMOCUP.id_termo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ENSAYO_TRABAM.id_trab)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENSAYO_TRABAM.id_trab)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INFORME_PRUEBA.observacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INFORME_PRUEBA.observacion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

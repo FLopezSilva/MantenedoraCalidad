@@ -1,0 +1,112 @@
+﻿@model IPagedList<MantenedoraCalidad.Models.MODELO>
+@using PagedList.Mvc;
+@using PagedList;
+
+@{
+    ViewBag.Title = "Listado de Modelos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/cocina.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <h2>MODELOS</h2>
+
+
+    <p style="text-align:left">
+        <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create","MODELO")'">
+            Crear Modelo
+        </button>
+        <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index","MODELO")'">
+            Volver a la lista
+        </button>
+    </p>
+    @using (Html.BeginForm("Index", "MODELO", FormMethod.Get))
+    {
+        <table>
+            <tr bgcolor="#dfe7ea">
+                <th>
+                    <center>
+                        <div class="search-container">
+                            <form action="/action_page.php">
+                                <b>Buscar por:</b> @Html.RadioButton("searchBy", "id_modelo", true) <text>Codigo</text>
+                                @Html.RadioButton("searchBy", "nom_modelo") <text>Descripción</text>
+                                @Html.TextBox("search")
+                                <button type="submit"><i class="fa fa-search">Buscar</i></button>
+                            </form>
+                        </div>
+                    </center>
+                </th>
+
+            </tr>
+        </table>
+    }
+    <div class="table-wrapper">
+
+        <table class="fl-table">
+            <thead>
+            <th>
+                <center>
+                    Codigo
+                </center>
+            </th>
+            <th>
+                <center>
+                    Modelo
+                </center>
+            </th>
+            <th>
+                <center>
+                    Familia
+                </center>
+            </th>
+            <th>
+                <center>
+                    Marca
+                </center>
+            </th>
+            <th>
+                <center>
+                    Opciones
+                </center>
+            </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id_modelo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nom_modelo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nom_familia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nom_marca)
+                    </td>
+                    <td>
+                        <center>
+                            <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Edit","MODELO" , new { id = item.id_modelo })'">
+                                Editar
+                            </button>
+                            <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Delete","MODELO" , new { id = item.id_modelo })'">
+                                Borrar
+
+                            </button>
+                        </center>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page, searchBy = Request.QueryString["searchBy"], search = Request.QueryString["search"] }),
+            new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })
+</body>
+</html>
